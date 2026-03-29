@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDFLove – Free Online PDF Tools | Merge, Split, Compress & Convert PDF</title>
+  <meta name="description" content="PDFLove offers 20+ free online PDF tools. Merge, split, compress, convert, rotate, watermark, protect and edit PDF files instantly. No installation required." />
+  <meta name="keywords" content="pdf tools, merge pdf, split pdf, compress pdf, pdf to word, word to pdf, pdf to jpg, jpg to pdf, rotate pdf, watermark pdf, protect pdf, unlock pdf, free pdf tools" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.pdflove.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PDFLove – Free Online PDF Tools" />
+  <meta property="og:description" content="Merge, split, compress, convert and edit PDFs for free. No software needed." />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"PDFLove","url":"https://www.pdflove.com","description":"Free online PDF tools"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --red:#E8334A; --red-dark:#C41F35; --red-light:#FDEDEF;
+      --cream:#FDF8F3; --ink:#1A1014; --ink-mid:#4A3640; --ink-soft:#8C7480;
+      --border:#EDE3E8; --white:#FFFFFF;
+      --shadow-sm:0 2px 8px rgba(26,16,20,.07);
+      --shadow-md:0 8px 28px rgba(26,16,20,.11);
+      --radius:14px; --radius-sm:8px;
+      --ff-head:'Fraunces',Georgia,serif; --ff-body:'DM Sans',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--ff-body);background:var(--cream);color:var(--ink);line-height:1.65;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(253,248,243,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:32px}
+    .logo{display:flex;align-items:center;gap:10px;font-family:var(--ff-head);font-size:1.5rem;font-weight:700;flex-shrink:0;cursor:pointer}
+    .logo-icon{width:36px;height:36px;background:var(--red);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
+    .logo span{color:var(--red)}
+    .nav-links{display:flex;gap:6px;list-style:none;margin-left:auto}
+    .nav-links a{padding:7px 14px;border-radius:var(--radius-sm);font-size:.88rem;font-weight:500;color:var(--ink-mid);transition:background .18s,color .18s}
+    .nav-links a:hover{background:var(--red-light);color:var(--red)}
+    .nav-cta{background:var(--red)!important;color:#fff!important;padding:8px 18px!important;border-radius:50px!important}
+    .nav-cta:hover{background:var(--red-dark)!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;margin-left:auto}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px}
+
+    /* HERO */
+    .hero{max-width:1200px;margin:0 auto;padding:90px 24px 60px;text-align:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red-light);color:var(--red);border:1px solid #F5C0C9;border-radius:50px;padding:6px 16px;font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:28px;animation:fadeUp .6s ease both}
+    .hero h1{font-family:var(--ff-head);font-size:clamp(2.6rem,6vw,5rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;animation:fadeUp .6s .1s ease both}
+    .hero h1 em{font-style:italic;color:var(--red)}
+    .hero-sub{font-size:1.15rem;color:var(--ink-soft);max-width:560px;margin:0 auto 40px;animation:fadeUp .6s .2s ease both}
+    .hero-search{display:flex;max-width:480px;margin:0 auto 20px;border:1.5px solid var(--border);border-radius:50px;overflow:hidden;background:var(--white);box-shadow:var(--shadow-sm);animation:fadeUp .6s .3s ease both}
+    .hero-search input{flex:1;border:none;outline:none;padding:14px 20px;font-family:var(--ff-body);font-size:.95rem;background:transparent;color:var(--ink)}
+    .hero-search button{background:var(--red);border:none;color:#fff;padding:0 22px;cursor:pointer;font-size:.9rem;font-weight:600;font-family:var(--ff-body);border-radius:0 50px 50px 0;transition:background .18s}
+    .hero-search button:hover{background:var(--red-dark)}
+    .hero-stats{display:flex;justify-content:center;gap:32px;margin-top:44px;flex-wrap:wrap;animation:fadeUp .6s .4s ease both}
+    .stat{text-align:center}
+    .stat-num{font-family:var(--ff-head);font-size:2rem;font-weight:700;color:var(--red);display:block}
+    .stat-label{font-size:.8rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em}
+
+    /* SECTIONS */
+    .section{max-width:1200px;margin:0 auto;padding:70px 24px}
+    .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;gap:16px;flex-wrap:wrap}
+    .section-header h2{font-family:var(--ff-head);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;line-height:1.15;letter-spacing:-.02em}
+    .section-tag{font-size:.8rem;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:8px}
+
+    /* CATEGORY TABS */
+    .cat-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+    .cat-tab{padding:8px 18px;border-radius:50px;border:1.5px solid var(--border);font-size:.84rem;font-weight:500;cursor:pointer;transition:all .18s;background:var(--white);color:var(--ink-mid)}
+    .cat-tab.active,.cat-tab:hover{background:var(--red);border-color:var(--red);color:#fff}
+
+    /* TOOL GRID */
+    .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+    .tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:26px 20px 22px;cursor:pointer;transition:border-color .22s,transform .22s,box-shadow .22s;text-align:center;position:relative;overflow:hidden}
+    .tool-card:hover{border-color:transparent;transform:translateY(-4px);box-shadow:var(--shadow-md)}
+    .tool-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.5rem;transition:transform .22s}
+    .tool-card:hover .tool-icon{transform:scale(1.1)}
+    .tool-name{font-weight:600;font-size:.88rem;color:var(--ink);margin-bottom:6px}
+    .tool-desc{font-size:.76rem;color:var(--ink-soft);line-height:1.45}
+    .red .tool-icon{background:#FDEDEF;color:var(--red)}
+    .blue .tool-icon{background:#EBF3FF;color:#2E6FE0}
+    .green .tool-icon{background:#E8F8F1;color:#1C9E62}
+    .orange .tool-icon{background:#FFF3E8;color:#E07820}
+    .purple .tool-icon{background:#F2EEFF;color:#6C3FD6}
+    .teal .tool-icon{background:#E8F7F8;color:#1C8FA0}
+    .pink .tool-icon{background:#FEECF5;color:#C4347F}
+    .amber .tool-icon{background:#FFF8E1;color:#B87700}
+
+    /* HOW IT WORKS */
+    .how-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;margin-top:40px}
+    .how-step{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:32px 24px}
+    .step-num{width:40px;height:40px;background:var(--red);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--ff-head);font-size:1.1rem;font-weight:700;margin-bottom:20px}
+    .how-step h3{font-family:var(--ff-head);font-size:1.1rem;font-weight:700;margin-bottom:10px}
+    .how-step p{font-size:.87rem;color:var(--ink-soft);line-height:1.6}
+
+    /* FEATURES STRIP */
+    .features-strip{background:var(--ink);color:var(--white);padding:60px 24px}
+    .features-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:32px}
+    .feature-item{display:flex;gap:16px;align-items:flex-start}
+    .feature-ico{width:44px;height:44px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .feature-item h4{font-family:var(--ff-head);font-size:1rem;font-weight:500;margin-bottom:4px}
+    .feature-item p{font-size:.82rem;opacity:.6;line-height:1.55}
+
+    /* TESTIMONIALS */
+    .testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:40px}
+    .testi-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:28px}
+    .testi-stars{color:#F5B400;margin-bottom:14px}
+    .testi-text{font-size:.9rem;color:var(--ink-mid);line-height:1.65;margin-bottom:20px;font-style:italic}
+    .testi-author{display:flex;align-items:center;gap:12px}
+    .testi-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;color:#fff;flex-shrink:0}
+    .testi-author-info strong{font-size:.88rem;font-weight:600;display:block}
+    .testi-author-info span{font-size:.78rem;color:var(--ink-soft)}
+
+    /* PRICING */
+    .pricing-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:44px}
+    .plan{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:36px 28px;position:relative}
+    .plan.featured{background:var(--red);border-color:var(--red);color:#fff}
+    .plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:5px 14px;border-radius:50px;white-space:nowrap}
+    .plan h3{font-family:var(--ff-head);font-size:1.4rem;font-weight:700;margin-bottom:8px}
+    .plan-price{font-family:var(--ff-head);font-size:2.8rem;font-weight:700;line-height:1;margin:20px 0 6px}
+    .plan-price sub{font-size:1.1rem;vertical-align:middle}
+    .plan-price sup{font-size:1rem;vertical-align:top;margin-top:8px;display:inline-block}
+    .plan-period{font-size:.82rem;opacity:.6;margin-bottom:24px}
+    .plan-features{list-style:none;margin-bottom:28px}
+    .plan-features li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:.88rem;display:flex;gap:10px;align-items:center}
+    .plan.featured .plan-features li{border-bottom-color:rgba(255,255,255,.15)}
+    .plan-features li::before{content:'✓';color:var(--red);font-weight:700;flex-shrink:0}
+    .plan.featured .plan-features li::before{color:rgba(255,255,255,.8)}
+
+    /* BUTTONS */
+    .btn{display:inline-block;padding:13px 28px;border-radius:50px;font-weight:600;font-size:.9rem;font-family:var(--ff-body);cursor:pointer;transition:all .2s;border:none;text-align:center}
+    .btn-red{background:var(--red);color:#fff}
+    .btn-red:hover{background:var(--red-dark)}
+    .btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--ink)}
+    .btn-outline:hover{border-color:var(--red);color:var(--red)}
+    .btn-white{background:#fff;color:var(--red)}
+    .btn-white:hover{background:var(--cream)}
+    .btn-full{width:100%;display:block}
+
+    /* FAQ */
+    .faq-list{margin-top:40px}
+    .faq-item{border:1.5px solid var(--border);border-radius:var(--radius-sm);margin-bottom:10px;background:var(--white);overflow:hidden}
+    .faq-q{padding:18px 22px;font-weight:600;font-size:.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--red);flex-shrink:0;transition:transform .25s}
+    .faq-item.open .faq-q::after{transform:rotate(45deg)}
+    .faq-a{padding:0 22px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;font-size:.88rem;color:var(--ink-mid);line-height:1.7}
+    .faq-item.open .faq-a{max-height:300px;padding:0 22px 18px}
+
+    /* CTA BANNER */
+    .cta-banner{background:var(--red);border-radius:20px;padding:60px 40px;text-align:center;color:#fff;max-width:1152px;margin:0 auto 80px;position:relative;overflow:hidden}
+    .cta-banner::before{content:'❤';position:absolute;font-size:18rem;opacity:.04;top:-40px;right:-40px;line-height:1}
+    .cta-banner h2{font-family:var(--ff-head);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;margin-bottom:16px}
+    .cta-banner p{font-size:1.05rem;opacity:.85;max-width:500px;margin:0 auto 32px}
+
+    /* ─── TOOL PAGE ─── */
+    .tool-page{display:none;animation:fadeUp .4s ease both}
+    .tool-page.active{display:block}
+
+    .tool-wrapper{max-width:900px;margin:0 auto;padding:48px 24px 80px}
+    .back-btn{display:inline-flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;color:var(--red);font-weight:600;font-size:.9rem;font-family:var(--ff-body);padding:0;margin-bottom:24px}
+    .tool-header{display:flex;align-items:center;gap:20px;margin-bottom:32px}
+    .tool-header-icon{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0}
+    .tool-header h1{font-family:var(--ff-head);font-size:2rem;font-weight:700;margin-bottom:6px}
+    .tool-header p{color:var(--ink-soft);font-size:.95rem}
+
+    /* DROPZONE */
+    .dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 30px;background:var(--white);cursor:pointer;transition:all .25s;text-align:center}
+    .dropzone:hover,.dropzone.dragover{border-color:var(--red);background:var(--red-light)}
+    .dropzone-emoji{font-size:2.8rem;margin-bottom:16px}
+    .dropzone p{color:var(--ink-soft);font-size:.92rem}
+    .dropzone strong{color:var(--red)}
+    .upload-btn{background:var(--red);color:#fff;border:none;border-radius:50px;padding:12px 28px;font-weight:600;font-size:.9rem;cursor:pointer;margin-top:18px;font-family:var(--ff-body);transition:background .18s;display:inline-block}
+    .upload-btn:hover{background:var(--red-dark)}
+
+    /* OPTIONS PANEL */
+    .options-panel{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:20px}
+    .options-panel h3{font-family:var(--ff-head);font-size:1rem;font-weight:600;margin-bottom:18px;color:var(--ink)}
+    .option-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+    .option-row label{font-size:.85rem;font-weight:500;color:var(--ink-mid);min-width:120px}
+    .option-row input,.option-row select{flex:1;min-width:140px;padding:8px 12px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--ff-body);font-size:.88rem;color:var(--ink);background:var(--cream);outline:none;transition:border-color .18s}
+    .option-row input:focus,.option-row select:focus{border-color:var(--red)}
+
+    /* PROGRESS */
+    .progress-area{margin-top:20px;display:none}
+    .progress-area.show{display:block}
+    .progress-bar-wrap{background:#F0E8EC;border-radius:50px;height:8px;overflow:hidden;margin:10px 0}
+    .progress-bar{background:var(--red);height:100%;border-radius:50px;width:0%;transition:width .3s}
+    .progress-label{font-size:.85rem;color:var(--ink-soft);margin-bottom:4px}
+
+    /* RESULT CARD */
+    .result-card{background:#E8F8F1;border:1.5px solid #9EDFC4;border-radius:var(--radius);padding:24px;margin-top:20px;display:none}
+    .result-card.show{display:block}
+    .result-card h3{font-family:var(--ff-head);font-size:1.1rem;font-weight:700;margin-bottom:12px;color:#1C6B48}
+    .result-meta{font-size:.85rem;color:#2D7D55;margin-bottom:16px;line-height:1.8}
+    .result-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .dl-btn{background:var(--red);color:#fff;border:none;border-radius:50px;padding:11px 24px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:var(--ff-body);transition:background .18s;display:inline-flex;align-items:center;gap:8px}
+    .dl-btn:hover{background:var(--red-dark)}
+    .new-btn{background:none;border:1.5px solid var(--border);border-radius:50px;padding:11px 20px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:var(--ff-body);color:var(--ink-mid);transition:all .18s}
+    .new-btn:hover{border-color:var(--red);color:var(--red)}
+
+    /* ERROR CARD */
+    .error-card{background:#FDEDEF;border:1.5px solid #F5C0C9;border-radius:var(--radius);padding:20px;margin-top:20px;display:none}
+    .error-card.show{display:block}
+    .error-card p{font-size:.88rem;color:#8B1A2A}
+    .error-card code{display:block;margin-top:8px;font-size:.78rem;background:rgba(0,0,0,.05);padding:8px 12px;border-radius:6px;font-family:monospace;word-break:break-all}
+
+    /* SYSTEM STATUS */
+    .system-bar{background:var(--ink);color:rgba(255,255,255,.75);font-size:.78rem;padding:6px 24px;text-align:center;display:none}
+    .system-bar.show{display:block}
+    .system-bar a{color:var(--red);font-weight:600}
+
+    /* FILE LIST */
+    .file-list{margin-top:12px}
+    .file-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-sm);margin-bottom:6px;font-size:.84rem}
+    .file-item-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .file-item-size{color:var(--ink-soft);flex-shrink:0}
+    .file-item-remove{background:none;border:none;cursor:pointer;color:var(--ink-soft);font-size:1rem;padding:0 2px;transition:color .15s}
+    .file-item-remove:hover{color:var(--red)}
+
+    /* FOOTER */
+    .footer{background:var(--ink);color:rgba(255,255,255,.7);padding:64px 24px 32px}
+    .footer-inner{max-width:1200px;margin:0 auto}
+    .footer-top{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:32px}
+    .footer-brand .logo{color:#fff;margin-bottom:16px}
+    .footer-brand p{font-size:.88rem;line-height:1.7;max-width:260px}
+    .footer-col h4{color:#fff;font-size:.88rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:18px}
+    .footer-col ul{list-style:none}
+    .footer-col ul li{margin-bottom:10px}
+    .footer-col ul a{font-size:.84rem;transition:color .15s}
+    .footer-col ul a:hover{color:var(--red)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:.82rem}
+    .social-links{display:flex;gap:12px}
+    .social-links a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:background .18s}
+    .social-links a:hover{background:var(--red)}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+
+    @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr}.nav-links{display:none}.hamburger{display:flex}}
+    @media(max-width:600px){.hero{padding:60px 20px 40px}.tools-grid{grid-template-columns:repeat(2,1fr)}.footer-top{grid-template-columns:1fr}.cta-banner{padding:40px 24px;margin:0 16px 60px}.hero-stats{gap:20px}.tool-header{flex-direction:column;text-align:center}}
+
+    .mobile-nav{display:none;position:fixed;inset:64px 0 0;background:var(--cream);z-index:99;padding:24px;overflow-y:auto}
+    .mobile-nav.open{display:block}
+    .mobile-nav ul{list-style:none}
+    .mobile-nav ul li{border-bottom:1px solid var(--border)}
+    .mobile-nav ul a{display:block;padding:14px 0;font-weight:500}
+  </style>
+</head>
+<body>
+
+<!-- SYSTEM STATUS BAR -->
+<div class="system-bar" id="systemBar">
+  ⚠️ Some system tools not installed. <a href="/api/system" target="_blank">Check /api/system</a> for install instructions.
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo" onclick="showHome()">
+      <div class="logo-icon">❤</div>PDF<span>Love</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#tools" onclick="showHome()">All Tools</a></li>
+      <li><a href="#how" onclick="showHome()">How It Works</a></li>
+      <li><a href="#pricing" onclick="showHome()">Pricing</a></li>
+      <li><a href="#faq" onclick="showHome()">FAQ</a></li>
+      <li><a href="/api/system" target="_blank" style="font-size:.78rem;opacity:.7">API Status</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="#" onclick="showHome();toggleMobileNav()">🏠 Home</a></li>
+    <li><a href="#tools" onclick="toggleMobileNav()">🛠 All Tools</a></li>
+    <li><a href="#how" onclick="toggleMobileNav()">📖 How It Works</a></li>
+    <li><a href="#pricing" onclick="toggleMobileNav()">💰 Pricing</a></li>
+    <li><a href="/api/system" target="_blank" onclick="toggleMobileNav()">🔧 API Status</a></li>
+  </ul>
+</div>
+
+<!-- ══════════ HOMEPAGE ══════════ -->
+<main id="homePage">
+
+  <section class="hero">
+    <div class="hero-badge">✦ 20+ Free PDF Tools</div>
+    <h1>Every PDF tool<br><em>you'll ever need</em></h1>
+    <p class="hero-sub">Merge, split, compress, convert, watermark, sign and edit PDFs — all for free, right in your browser.</p>
+    <div class="hero-search">
+      <input type="text" id="searchInput" placeholder="Search a tool… e.g. Merge PDF" oninput="filterTools(this.value)" />
+      <button onclick="filterTools(document.getElementById('searchInput').value)">Search</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">20+</span><span class="stat-label">PDF Tools</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Free Forever</span></div>
+      <div class="stat"><span class="stat-num">200MB</span><span class="stat-label">Max File Size</span></div>
+      <div class="stat"><span class="stat-num">🔒</span><span class="stat-label">Secure & Private</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="tools">
+    <div class="section-header">
+      <div><span class="section-tag">All Tools</span><h2>Everything you need<br>to work with PDFs</h2></div>
+    </div>
+    <div class="cat-tabs">
+      <button class="cat-tab active" onclick="filterCat('all',this)">All Tools</button>
+      <button class="cat-tab" onclick="filterCat('convert',this)">Convert</button>
+      <button class="cat-tab" onclick="filterCat('organize',this)">Organize</button>
+      <button class="cat-tab" onclick="filterCat('optimize',this)">Optimize</button>
+      <button class="cat-tab" onclick="filterCat('security',this)">Security</button>
+      <button class="cat-tab" onclick="filterCat('edit',this)">Edit</button>
+    </div>
+    <div class="tools-grid" id="toolsGrid">
+      <div class="tool-card red"    data-cat="organize" onclick="openTool('merge-pdf')"><div class="tool-icon">📄</div><div class="tool-name">Merge PDF</div><div class="tool-desc">Combine multiple PDFs into one</div></div>
+      <div class="tool-card red"    data-cat="organize" onclick="openTool('split-pdf')"><div class="tool-icon">✂️</div><div class="tool-name">Split PDF</div><div class="tool-desc">Separate pages into multiple PDFs</div></div>
+      <div class="tool-card orange" data-cat="organize" onclick="openTool('rotate-pdf')"><div class="tool-icon">🔄</div><div class="tool-name">Rotate PDF</div><div class="tool-desc">Rotate pages to any orientation</div></div>
+      <div class="tool-card teal"   data-cat="organize" onclick="openTool('organize-pdf')"><div class="tool-icon">🗂</div><div class="tool-name">Organize PDF</div><div class="tool-desc">Sort, delete and reorder pages</div></div>
+      <div class="tool-card purple" data-cat="organize" onclick="openTool('page-numbers')"><div class="tool-icon">🔢</div><div class="tool-name">Page Numbers</div><div class="tool-desc">Add page numbers to your PDF</div></div>
+      <div class="tool-card green"  data-cat="optimize" onclick="openTool('compress-pdf')"><div class="tool-icon">📦</div><div class="tool-name">Compress PDF</div><div class="tool-desc">Reduce PDF file size easily</div></div>
+      <div class="tool-card teal"   data-cat="optimize" onclick="openTool('repair-pdf')"><div class="tool-icon">🔧</div><div class="tool-name">Repair PDF</div><div class="tool-desc">Fix corrupted or broken PDFs</div></div>
+      <div class="tool-card amber"  data-cat="optimize" onclick="openTool('ocr-pdf')"><div class="tool-icon">🔍</div><div class="tool-name">OCR PDF</div><div class="tool-desc">Make scanned PDFs searchable</div></div>
+      <div class="tool-card blue"   data-cat="convert"  onclick="openTool('pdf-to-word')"><div class="tool-icon">📝</div><div class="tool-name">PDF to Word</div><div class="tool-desc">Convert PDF to editable DOCX</div></div>
+      <div class="tool-card orange" data-cat="convert"  onclick="openTool('pdf-to-powerpoint')"><div class="tool-icon">📊</div><div class="tool-name">PDF to PowerPoint</div><div class="tool-desc">Convert PDF slides to PPTX</div></div>
+      <div class="tool-card green"  data-cat="convert"  onclick="openTool('pdf-to-excel')"><div class="tool-icon">📈</div><div class="tool-name">PDF to Excel</div><div class="tool-desc">Extract tables to spreadsheets</div></div>
+      <div class="tool-card pink"   data-cat="convert"  onclick="openTool('pdf-to-jpg')"><div class="tool-icon">🖼</div><div class="tool-name">PDF to JPG</div><div class="tool-desc">Convert PDF pages to images</div></div>
+      <div class="tool-card purple" data-cat="convert"  onclick="openTool('html-to-pdf')"><div class="tool-icon">🌐</div><div class="tool-name">HTML to PDF</div><div class="tool-desc">Convert web pages to PDF</div></div>
+      <div class="tool-card teal"   data-cat="convert"  onclick="openTool('pdf-to-text')"><div class="tool-icon">📃</div><div class="tool-name">PDF to Text</div><div class="tool-desc">Extract raw text from PDFs</div></div>
+      <div class="tool-card blue"   data-cat="convert"  onclick="openTool('word-to-pdf')"><div class="tool-icon">📄</div><div class="tool-name">Word to PDF</div><div class="tool-desc">Convert DOCX files to PDF</div></div>
+      <div class="tool-card orange" data-cat="convert"  onclick="openTool('powerpoint-to-pdf')"><div class="tool-icon">📑</div><div class="tool-name">PowerPoint to PDF</div><div class="tool-desc">Convert PPTX to PDF</div></div>
+      <div class="tool-card green"  data-cat="convert"  onclick="openTool('excel-to-pdf')"><div class="tool-icon">📉</div><div class="tool-name">Excel to PDF</div><div class="tool-desc">Convert XLSX spreadsheets to PDF</div></div>
+      <div class="tool-card pink"   data-cat="convert"  onclick="openTool('jpg-to-pdf')"><div class="tool-icon">🖼</div><div class="tool-name">JPG to PDF</div><div class="tool-desc">Convert images to PDF files</div></div>
+      <div class="tool-card pink"   data-cat="edit"     onclick="openTool('watermark-pdf')"><div class="tool-icon">💧</div><div class="tool-name">Watermark PDF</div><div class="tool-desc">Add text or image watermarks</div></div>
+      <div class="tool-card amber"  data-cat="edit"     onclick="openTool('sign-pdf')"><div class="tool-icon">✍️</div><div class="tool-name">Sign PDF</div><div class="tool-desc">Electronically sign documents</div></div>
+      <div class="tool-card teal"   data-cat="edit"     onclick="openTool('flatten-pdf')"><div class="tool-icon">📐</div><div class="tool-name">Flatten PDF</div><div class="tool-desc">Flatten forms and annotations</div></div>
+      <div class="tool-card green"  data-cat="edit"     onclick="openTool('compare-pdf')"><div class="tool-icon">🔀</div><div class="tool-name">Compare PDF</div><div class="tool-desc">Highlight differences between PDFs</div></div>
+      <div class="tool-card purple" data-cat="edit"     onclick="openTool('redact-pdf')"><div class="tool-icon">⬛</div><div class="tool-name">Redact PDF</div><div class="tool-desc">Permanently hide sensitive text</div></div>
+      <div class="tool-card red"    data-cat="security" onclick="openTool('protect-pdf')"><div class="tool-icon">🔒</div><div class="tool-name">Protect PDF</div><div class="tool-desc">Password-protect your PDF files</div></div>
+      <div class="tool-card amber"  data-cat="security" onclick="openTool('unlock-pdf')"><div class="tool-icon">🔓</div><div class="tool-name">Unlock PDF</div><div class="tool-desc">Remove PDF password protection</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="section-header"><div><span class="section-tag">Simple Process</span><h2>How PDFLove works</h2></div></div>
+    <div class="how-grid">
+      <div class="how-step"><div class="step-num">1</div><h3>Choose your tool</h3><p>Pick from 20+ free PDF tools on our homepage. No sign-up needed to get started.</p></div>
+      <div class="how-step"><div class="step-num">2</div><h3>Upload your file</h3><p>Drag & drop your PDF or click to browse. Files stay secure and private on our servers.</p></div>
+      <div class="how-step"><div class="step-num">3</div><h3>Configure options</h3><p>Adjust settings, select pages, choose output format — whatever the tool requires.</p></div>
+      <div class="how-step"><div class="step-num">4</div><h3>Download result</h3><p>Get your processed file instantly. Files are deleted from our servers after 2 hours.</p></div>
+    </div>
+  </section>
+
+  <div class="features-strip">
+    <div class="features-inner">
+      <div class="feature-item"><div class="feature-ico">🔒</div><div><h4>SSL Encrypted</h4><p>All file transfers secured with 256-bit SSL encryption.</p></div></div>
+      <div class="feature-item"><div class="feature-ico">🗑</div><div><h4>Auto-Deleted</h4><p>Files automatically removed from servers after 2 hours.</p></div></div>
+      <div class="feature-item"><div class="feature-ico">⚡</div><div><h4>Lightning Fast</h4><p>Cloud-powered processing. Most tasks complete in seconds.</p></div></div>
+      <div class="feature-item"><div class="feature-ico">🌍</div><div><h4>Works Everywhere</h4><p>Mac, Windows, Linux, iOS, Android — any device with a browser.</p></div></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-header"><div><span class="section-tag">Loved by Users</span><h2>What people are saying</h2></div></div>
+    <div class="testi-grid">
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"PDFLove is my go-to for everything PDF. The merge tool saved me hours of manual work last week alone."</p><div class="testi-author"><div class="testi-avatar" style="background:#2E6FE0">SJ</div><div class="testi-author-info"><strong>Sarah Johnson</strong><span>Marketing Manager</span></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"I was amazed by how fast the PDF to Word conversion is. Tables, fonts, everything preserved perfectly."</p><div class="testi-author"><div class="testi-avatar" style="background:#1C9E62">MK</div><div class="testi-author-info"><strong>Michael Krause</strong><span>Freelance Writer</span></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Finally a PDF tool website that doesn't require me to create an account. Love it."</p><div class="testi-author"><div class="testi-avatar" style="background:#C4347F">AP</div><div class="testi-author-info"><strong>Aisha Patel</strong><span>Student</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="section-header"><div><span class="section-tag">Plans</span><h2>Simple, transparent pricing</h2></div></div>
+    <div class="pricing-grid">
+      <div class="plan"><h3>Free</h3><p style="color:var(--ink-soft);font-size:.88rem">For casual users</p><div class="plan-price"><sup>€</sup>0</div><div class="plan-period">Forever free</div><ul class="plan-features"><li>All 20+ PDF tools</li><li>Up to 200 MB per file</li><li>2 tasks per hour</li><li>Basic compression</li></ul><a href="#" class="btn btn-outline btn-full">Get Started Free</a></div>
+      <div class="plan featured"><div class="plan-badge">Most Popular</div><h3>Pro</h3><p style="opacity:.75;font-size:.88rem">For professionals</p><div class="plan-price"><sup>€</sup>6<sub>/mo</sub></div><div class="plan-period">Billed annually · €72/year</div><ul class="plan-features"><li>All tools</li><li>Up to 2 GB per file</li><li>Unlimited tasks</li><li>Advanced compression</li><li>Batch processing</li><li>No ads</li></ul><a href="#" class="btn btn-white btn-full">Start Pro Trial</a></div>
+      <div class="plan"><h3>Business</h3><p style="color:var(--ink-soft);font-size:.88rem">For teams</p><div class="plan-price"><sup>€</sup>14<sub>/mo</sub></div><div class="plan-period">Per user · billed annually</div><ul class="plan-features"><li>Everything in Pro</li><li>Unlimited file size</li><li>Team management</li><li>API access</li><li>SSO / SAML</li><li>SLA guarantee</li></ul><a href="#" class="btn btn-outline btn-full">Contact Sales</a></div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="section-header"><div><span class="section-tag">FAQ</span><h2>Frequently asked questions</h2></div></div>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is PDFLove really free?</div><div class="faq-a">Yes! All 20+ PDF tools are completely free. The free plan has 2 tasks/hour and files up to 200 MB.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Are my uploaded files secure?</div><div class="faq-a">Absolutely. All uploads are SSL encrypted. Files auto-delete after 2 hours. We never read or share your documents.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I need to install any software?</div><div class="faq-a">No installation required. PDFLove works entirely in your browser on any device.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What file size is supported?</div><div class="faq-a">Free: up to 200 MB. Pro: up to 2 GB. Business: unlimited.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is there an API available?</div><div class="faq-a">Yes. The PDFLove REST API is available on the Business plan. See /api/health and /api/system for details.</div></div>
+    </div>
+  </section>
+
+  <div class="cta-banner" style="margin:0 24px 80px">
+    <h2>Start working smarter<br>with your PDFs today</h2>
+    <p>Join millions of users who trust PDFLove for all their PDF needs.</p>
+    <button class="btn btn-white" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Try Free Tools Now</button>
+  </div>
+
+</main>
+
+<!-- ══════════ TOOL PAGE ══════════ -->
+<div id="toolPage" class="tool-page">
+  <div class="tool-wrapper">
+    <button class="back-btn" onclick="showHome()">← Back to all tools</button>
+
+    <div class="tool-header">
+      <div class="tool-header-icon" id="th-icon"></div>
+      <div>
+        <h1 id="th-title">Tool</h1>
+        <p id="th-desc"></p>
+      </div>
+    </div>
+
+    <!-- DROPZONE -->
+    <div class="dropzone" id="dropZone"
+         ondragover="event.preventDefault();this.classList.add('dragover')"
+         ondragleave="this.classList.remove('dragover')"
+         ondrop="handleDrop(event)">
+      <div class="dropzone-emoji" id="dz-emoji">📄</div>
+      <p><strong>Click to select</strong> or drag & drop your file here</p>
+      <p style="margin-top:6px;font-size:.78rem;color:var(--ink-soft)" id="dz-hint">Supports PDF files</p>
+      <input type="file" id="fileInput" style="display:none" onchange="handleFileSelect(event)" />
+      <button class="upload-btn" onclick="document.getElementById('fileInput').click()" id="chooseBtn">Choose File</button>
+    </div>
+
+    <!-- FILE LIST (for multi-file tools) -->
+    <div id="fileList" class="file-list"></div>
+
+    <!-- OPTIONS PANEL -->
+    <div class="options-panel" id="optionsPanel" style="display:none">
+      <h3>⚙️ Options</h3>
+      <div id="optionsContent"></div>
+      <button class="upload-btn" style="margin-top:8px" id="processBtn" onclick="processFile()">
+        ▶ Process File
+      </button>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-area" id="progressArea">
+      <p class="progress-label" id="progressLabel">Uploading…</p>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-card" id="resultCard">
+      <h3>✅ Done! Your file is ready</h3>
+      <div class="result-meta" id="resultMeta"></div>
+      <div class="result-actions" id="resultActions"></div>
+    </div>
+
+    <!-- ERROR -->
+    <div class="error-card" id="errorCard">
+      <p id="errorMsg"></p>
+      <code id="errorDetail"></code>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" onclick="showHome()" style="cursor:pointer"><div class="logo-icon">❤</div>PDF<span style="color:var(--red)">Love</span></div>
+        <p style="margin-top:14px">The all-in-one PDF toolkit for professionals, students, and businesses.</p>
+        <div class="social-links" style="margin-top:20px"><a>🐦</a><a>💼</a><a>📘</a><a>📸</a></div>
+      </div>
+      <div class="footer-col"><h4>Tools</h4><ul><li><a href="#" onclick="openTool('merge-pdf')">Merge PDF</a></li><li><a href="#" onclick="openTool('split-pdf')">Split PDF</a></li><li><a href="#" onclick="openTool('compress-pdf')">Compress PDF</a></li><li><a href="#" onclick="openTool('pdf-to-word')">PDF to Word</a></li><li><a href="#" onclick="openTool('pdf-to-jpg')">PDF to JPG</a></li><li><a href="#" onclick="openTool('jpg-to-pdf')">JPG to PDF</a></li><li><a href="#" onclick="openTool('sign-pdf')">Sign PDF</a></li><li><a href="#" onclick="openTool('protect-pdf')">Protect PDF</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="/api/system" target="_blank">API Status</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">GDPR</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 PDFLove. All rights reserved.</span>
+      <span>Made with ❤ for everyone who works with PDFs</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════
+   TOOL DEFINITIONS
+════════════════════════════════════════════════ */
+const API = '';  // Empty = same origin. Change to 'http://localhost:3000' if separate server
+
+const TOOLS = {
+  'merge-pdf':         { name:'Merge PDF',         icon:'📄', desc:'Combine multiple PDF files into one document.', color:'#FDEDEF', endpoint:'/api/organize/merge',        accept:'.pdf', multi:true,  fieldName:'files' },
+  'split-pdf':         { name:'Split PDF',          icon:'✂️', desc:'Separate a PDF into multiple smaller files.',  color:'#FDEDEF', endpoint:'/api/organize/split',        accept:'.pdf', multi:false, fieldName:'file',
+    options:[
+      { label:'Split mode', id:'mode', type:'select', opts:['every','range','pages'], default:'every' },
+      { label:'Every N pages', id:'every', type:'number', default:1 },
+      { label:'Page ranges (e.g. 1-3,4-6)', id:'ranges', type:'text', default:'' },
+    ]
+  },
+  'rotate-pdf':        { name:'Rotate PDF',         icon:'🔄', desc:'Rotate pages clockwise or counterclockwise.',  color:'#FFF3E8', endpoint:'/api/organize/rotate',       accept:'.pdf', multi:false, fieldName:'file',
+    options:[
+      { label:'Rotate angle', id:'angle', type:'select', opts:['90','180','270'], default:'90' },
+      { label:'Apply to pages', id:'pages', type:'select', opts:['all','odd','even'], default:'all' },
+    ]
+  },
+  'organize-pdf':      { name:'Organize PDF',       icon:'🗂', desc:'Reorder and delete pages visually.',           color:'#E8F7F8', endpoint:'/api/organize/pages',        accept:'.pdf', multi:false, fieldName:'file' },
+  'page-numbers':      { name:'Page Numbers',       icon:'🔢', desc:'Add page numbers to your PDF.',               color:'#F2EEFF', endpoint:'/api/organize/page-numbers',  accept:'.pdf', multi:false, fieldName:'file',
+    options:[
+      { label:'Position', id:'position', type:'select', opts:['bottom-center','bottom-right','bottom-left','top-center','top-right'], default:'bottom-center' },
+      { label:'Format', id:'format', type:'text', default:'Page {n} of {total}' },
+      { label:'Start from', id:'startFrom', type:'number', default:1 },
+      { label:'Font size', id:'fontSize', type:'number', default:11 },
+    ]
+  },
+  'compress-pdf':      { name:'Compress PDF',       icon:'📦', desc:'Reduce PDF file size while maintaining quality.', color:'#E8F8F1', endpoint:'/api/optimize/compress', accept:'.pdf', multi:false, fieldName:'file',
+    options:[{ label:'Compression level', id:'level', type:'select', opts:['recommended','extreme','low'], default:'recommended' }]
+  },
+  'repair-pdf':        { name:'Repair PDF',         icon:'🔧', desc:'Fix corrupted or damaged PDF files.',          color:'#E8F7F8', endpoint:'/api/optimize/repair',       accept:'.pdf', multi:false, fieldName:'file' },
+  'ocr-pdf':           { name:'OCR PDF',            icon:'🔍', desc:'Make scanned PDFs searchable.',               color:'#FFF8E1', endpoint:'/api/optimize/ocr',           accept:'.pdf', multi:false, fieldName:'file',
+    options:[{ label:'Language', id:'lang', type:'select', opts:['eng','deu','fra','spa','ita','por','nld'], default:'eng' }]
+  },
+  'pdf-to-word':       { name:'PDF to Word',        icon:'📝', desc:'Convert PDF to editable Word DOCX.',          color:'#EBF3FF', endpoint:'/api/convert/pdf-to-word',    accept:'.pdf', multi:false, fieldName:'file' },
+  'pdf-to-powerpoint': { name:'PDF to PowerPoint',  icon:'📊', desc:'Convert PDF to editable PPTX.',              color:'#FFF3E8', endpoint:'/api/convert/pdf-to-pptx',    accept:'.pdf', multi:false, fieldName:'file' },
+  'pdf-to-excel':      { name:'PDF to Excel',       icon:'📈', desc:'Extract tables to Excel XLSX.',               color:'#E8F8F1', endpoint:'/api/convert/pdf-to-excel',   accept:'.pdf', multi:false, fieldName:'file' },
+  'pdf-to-jpg':        { name:'PDF to JPG',         icon:'🖼', desc:'Convert PDF pages to JPG images.',            color:'#FEECF5', endpoint:'/api/convert/pdf-to-jpg',     accept:'.pdf', multi:false, fieldName:'file',
+    options:[{ label:'DPI / Quality', id:'dpi', type:'select', opts:['72','150','300'], default:'150' }]
+  },
+  'html-to-pdf':       { name:'HTML to PDF',        icon:'🌐', desc:'Convert a web page URL to PDF.',              color:'#F2EEFF', endpoint:'/api/convert/html-to-pdf',    accept:null,   multi:false, fieldName:null,
+    customUI: `<div class="option-row" style="margin:0"><label>Website URL</label><input type="url" id="urlInput" placeholder="https://example.com" style="flex:1;min-width:200px;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--ff-body);font-size:.9rem;background:var(--cream);outline:none" /></div>`
+  },
+  'pdf-to-text':       { name:'PDF to Text',        icon:'📃', desc:'Extract all text from your PDF.',             color:'#E8F7F8', endpoint:'/api/optimize/extract-text',  accept:'.pdf', multi:false, fieldName:'file' },
+  'word-to-pdf':       { name:'Word to PDF',        icon:'📄', desc:'Convert Word DOCX files to PDF.',             color:'#EBF3FF', endpoint:'/api/convert/word-to-pdf',    accept:'.doc,.docx', multi:false, fieldName:'file' },
+  'powerpoint-to-pdf': { name:'PowerPoint to PDF',  icon:'📑', desc:'Convert PPTX files to PDF.',                 color:'#FFF3E8', endpoint:'/api/convert/pptx-to-pdf',    accept:'.ppt,.pptx', multi:false, fieldName:'file' },
+  'excel-to-pdf':      { name:'Excel to PDF',       icon:'📉', desc:'Convert Excel XLSX to PDF.',                  color:'#E8F8F1', endpoint:'/api/convert/excel-to-pdf',   accept:'.xls,.xlsx', multi:false, fieldName:'file' },
+  'jpg-to-pdf':        { name:'JPG to PDF',         icon:'🖼', desc:'Convert images to a PDF file.',               color:'#FEECF5', endpoint:'/api/convert/images-to-pdf',  accept:'.jpg,.jpeg,.png,.webp', multi:true, fieldName:'files',
+    options:[
+      { label:'Page size', id:'pageSize', type:'select', opts:['original','A4','Letter','A3'], default:'A4' },
+      { label:'Margin (pt)', id:'margin', type:'number', default:20 },
+    ]
+  },
+  'watermark-pdf':     { name:'Watermark PDF',      icon:'💧', desc:'Add text watermarks to your PDF.',            color:'#FEECF5', endpoint:'/api/edit/watermark',          accept:'.pdf', multi:false, fieldName:'file',
+    options:[
+      { label:'Watermark text', id:'text', type:'text', default:'CONFIDENTIAL' },
+      { label:'Opacity (0–1)', id:'opacity', type:'number', default:0.2 },
+      { label:'Angle (degrees)', id:'angle', type:'number', default:45 },
+      { label:'Color', id:'color', type:'select', opts:['gray','red','blue','black'], default:'gray' },
+      { label:'Position', id:'position', type:'select', opts:['center','tile','top-right','bottom-left'], default:'center' },
+    ]
+  },
+  'sign-pdf':          { name:'Sign PDF',           icon:'✍️', desc:'Add a signature to your PDF.',               color:'#FFF8E1', endpoint:'/api/edit/sign',               accept:'.pdf', multi:false, fieldName:'file',
+    options:[{ label:'Signature text', id:'signatureText', type:'text', default:'Signed' }]
+  },
+  'flatten-pdf':       { name:'Flatten PDF',        icon:'📐', desc:'Flatten form fields and annotations.',        color:'#E8F7F8', endpoint:'/api/edit/flatten',            accept:'.pdf', multi:false, fieldName:'file' },
+  'compare-pdf':       { name:'Compare PDF',        icon:'🔀', desc:'Compare two PDF files for differences.',      color:'#E8F8F1', endpoint:'/api/edit/compare',            accept:'.pdf', multi:true, fieldName:'file1', fieldName2:'file2', maxFiles:2 },
+  'redact-pdf':        { name:'Redact PDF',         icon:'⬛', desc:'Permanently black out sensitive content.',    color:'#F2EEFF', endpoint:'/api/edit/redact',             accept:'.pdf', multi:false, fieldName:'file' },
+  'protect-pdf':       { name:'Protect PDF',        icon:'🔒', desc:'Add password protection to your PDF.',        color:'#FDEDEF', endpoint:'/api/security/protect',        accept:'.pdf', multi:false, fieldName:'file',
+    options:[
+      { label:'Password', id:'password', type:'text', default:'' },
+      { label:'Owner password', id:'ownerPassword', type:'text', default:'' },
+    ]
+  },
+  'unlock-pdf':        { name:'Unlock PDF',         icon:'🔓', desc:'Remove password from a PDF you own.',         color:'#FFF8E1', endpoint:'/api/security/unlock',         accept:'.pdf', multi:false, fieldName:'file',
+    options:[{ label:'Current password', id:'password', type:'text', default:'' }]
+  },
+};
+
+/* ── State ── */
+let currentTool  = null;
+let selectedFiles = [];
+
+/* ══════════ NAVIGATION ══════════ */
+function showHome() {
+  document.getElementById('homePage').style.display = '';
+  document.getElementById('toolPage').classList.remove('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.title = 'PDFLove – Free Online PDF Tools';
+  currentTool = null;
+  selectedFiles = [];
+}
+
+function openTool(id) {
+  const t = TOOLS[id];
+  if (!t) return;
+  currentTool = id;
+  selectedFiles = [];
+
+  // Header
+  const ico = document.getElementById('th-icon');
+  ico.textContent = t.icon;
+  ico.style.background = t.color;
+  document.getElementById('th-title').textContent = t.name;
+  document.getElementById('th-desc').textContent  = t.desc;
+
+  // Dropzone
+  document.getElementById('dz-emoji').textContent = t.icon;
+  document.getElementById('dz-hint').textContent  = t.accept ? `Accepted: ${t.accept}` : '';
+  document.getElementById('fileList').innerHTML   = '';
+
+  const fi = document.getElementById('fileInput');
+  if (t.accept) {
+    fi.accept   = t.accept;
+    fi.multiple = !!t.multi;
+  }
+
+  // Hide/show dropzone
+  const dz = document.getElementById('dropZone');
+  dz.style.display = t.customUI ? 'none' : '';
+
+  // Options
+  const opPanel   = document.getElementById('optionsPanel');
+  const opContent = document.getElementById('optionsContent');
+  opContent.innerHTML = '';
+
+  if (t.customUI) {
+    opPanel.style.display = '';
+    opContent.innerHTML   = t.customUI;
+  } else if (t.options?.length) {
+    opPanel.style.display = '';
+    t.options.forEach(o => {
+      const row = document.createElement('div');
+      row.className = 'option-row';
+      let input;
+      if (o.type === 'select') {
+        input = `<select id="opt_${o.id}">${o.opts.map(v=>`<option value="${v}"${v==o.default?' selected':''}>${v}</option>`).join('')}</select>`;
+      } else {
+        input = `<input type="${o.type}" id="opt_${o.id}" value="${o.default}" placeholder="${o.label}" />`;
+      }
+      row.innerHTML = `<label>${o.label}</label>${input}`;
+      opContent.appendChild(row);
+    });
+  } else {
+    opPanel.style.display = 'none';
+  }
+
+  // Reset result/error/progress
+  document.getElementById('resultCard').classList.remove('show');
+  document.getElementById('errorCard').classList.remove('show');
+  document.getElementById('progressArea').classList.remove('show');
+
+  document.getElementById('homePage').style.display = 'none';
+  document.getElementById('toolPage').classList.add('active');
+  document.title = `${t.name} – PDFLove`;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ══════════ FILE HANDLING ══════════ */
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('dropZone').classList.remove('dragover');
+  addFiles(Array.from(e.dataTransfer.files));
+}
+
+function handleFileSelect(e) {
+  addFiles(Array.from(e.target.files));
+}
+
+function addFiles(files) {
+  const t = TOOLS[currentTool];
+  if (!t) return;
+
+  if (t.multi) {
+    selectedFiles.push(...files);
+  } else {
+    selectedFiles = [files[0]];
+  }
+
+  renderFileList();
+
+  // Auto-show process btn
+  const op = document.getElementById('optionsPanel');
+  if (op.style.display === 'none') {
+    op.style.display = '';
+    document.getElementById('optionsContent').innerHTML = '';
+  }
+  document.getElementById('processBtn').style.display = '';
+}
+
+function removeFile(index) {
+  selectedFiles.splice(index, 1);
+  renderFileList();
+}
+
+function renderFileList() {
+  const container = document.getElementById('fileList');
+  container.innerHTML = '';
+  selectedFiles.forEach((f, i) => {
+    const item = document.createElement('div');
+    item.className = 'file-item';
+    const size = f.size < 1048576
+      ? (f.size / 1024).toFixed(1) + ' KB'
+      : (f.size / 1048576).toFixed(1) + ' MB';
+    item.innerHTML = `
+      <span>📄</span>
+      <span class="file-item-name">${f.name}</span>
+      <span class="file-item-size">${size}</span>
+      <button class="file-item-remove" onclick="removeFile(${i})">✕</button>
+    `;
+    container.appendChild(item);
+  });
+}
+
+/* ══════════ PROCESS FILE ══════════ */
+async function processFile() {
+  const t = TOOLS[currentTool];
+  if (!t) return;
+
+  // Validate
+  if (t.fieldName && selectedFiles.length === 0) {
+    showError('Please select a file first.', '');
+    return;
+  }
+
+  if (currentTool === 'compare-pdf' && selectedFiles.length < 2) {
+    showError('Please select 2 PDF files for comparison.', '');
+    return;
+  }
+
+  resetUI();
+  showProgress('Uploading file…', 10);
+
+  try {
+    const fd = new FormData();
+
+    // Attach files
+    if (currentTool === 'compare-pdf') {
+      fd.append('file1', selectedFiles[0]);
+      fd.append('file2', selectedFiles[1]);
+    } else if (t.multi) {
+      selectedFiles.forEach(f => fd.append(t.fieldName, f));
+    } else if (t.fieldName) {
+      fd.append(t.fieldName, selectedFiles[0]);
+    }
+
+    // Attach options
+    if (t.options) {
+      t.options.forEach(o => {
+        const el = document.getElementById(`opt_${o.id}`);
+        if (el) fd.append(o.id, el.value);
+      });
+    }
+
+    // HTML to PDF special case
+    if (currentTool === 'html-to-pdf') {
+      const url = document.getElementById('urlInput')?.value;
+      if (!url) { showError('Please enter a URL.', ''); return; }
+      fd.append('url', url);
+    }
+
+    showProgress('Processing…', 40);
+
+    const res = await fetch(API + t.endpoint, { method: 'POST', body: fd });
+
+    showProgress('Finishing up…', 85);
+
+    const data = await res.json();
+
+    if (!res.ok || data.error) {
+      throw new Error(data.error || `Server error ${res.status}`);
+    }
+
+    showProgress('Done!', 100);
+    setTimeout(() => document.getElementById('progressArea').classList.remove('show'), 800);
+
+    showResult(data);
+
+  } catch (err) {
+    document.getElementById('progressArea').classList.remove('show');
+    showError('Processing failed: ' + err.message, err.stack || '');
+  }
+}
+
+/* ══════════ UI HELPERS ══════════ */
+function showProgress(label, pct) {
+  const area = document.getElementById('progressArea');
+  area.classList.add('show');
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('progressBar').style.width   = pct + '%';
+}
+
+function showResult(data) {
+  const card    = document.getElementById('resultCard');
+  const meta    = document.getElementById('resultMeta');
+  const actions = document.getElementById('resultActions');
+
+  card.classList.add('show');
+  card.querySelector('h3').textContent = data.success ? '✅ Done! Your file is ready' : '⚠️ Completed with notes';
+
+  let metaHtml = '';
+  if (data.filename) metaHtml += `📄 <strong>${data.filename}</strong><br>`;
+  if (data.size)     metaHtml += `📦 Size: ${data.size}<br>`;
+  if (data.pages)    metaHtml += `📑 Pages: ${data.pages}<br>`;
+  if (data.originalSize && data.newSize) metaHtml += `📉 ${data.originalSize} → ${data.newSize} (saved ${data.reduction})<br>`;
+  if (data.wordCount)  metaHtml += `📝 Words: ${data.wordCount}<br>`;
+  if (data.charCount)  metaHtml += `🔤 Characters: ${data.charCount}<br>`;
+  if (data.note)       metaHtml += `<br>💡 ${data.note}`;
+
+  // Multiple files result (split / pdf-to-jpg)
+  if (data.files?.length) {
+    metaHtml += `📁 ${data.files.length} files generated<br>`;
+    data.files.slice(0, 5).forEach(f => {
+      metaHtml += `&nbsp;&nbsp;• ${f.filename} (${f.size || ''})<br>`;
+    });
+    if (data.files.length > 5) metaHtml += `&nbsp;&nbsp;… and ${data.files.length - 5} more<br>`;
+  }
+
+  if (data.differences) {
+    metaHtml += `<br>🔍 <strong>Comparison result:</strong><br>`;
+    metaHtml += `&nbsp;&nbsp;File 1: ${data.file1?.pages} pages, ${data.file1?.size}<br>`;
+    metaHtml += `&nbsp;&nbsp;File 2: ${data.file2?.pages} pages, ${data.file2?.size}<br>`;
+    metaHtml += `&nbsp;&nbsp;Page diff: ${data.differences.pageDifference}, Size diff: ${data.differences.sizeDifference}<br>`;
+    metaHtml += `&nbsp;&nbsp;${data.differences.identical ? '✅ Files appear identical' : '⚠️ Files differ'}<br>`;
+  }
+
+  if (data.preview) {
+    metaHtml += `<br><small style="font-family:monospace;opacity:.7">Preview: ${data.preview.substring(0,200)}…</small>`;
+  }
+
+  meta.innerHTML = metaHtml;
+
+  // Download buttons
+  actions.innerHTML = '';
+  const downloads = [];
+  if (data.downloadUrl)  downloads.push({ url: data.downloadUrl, name: data.filename || 'result' });
+  if (data.files)        data.files.forEach(f => downloads.push({ url: f.downloadUrl, name: f.filename }));
+
+  downloads.slice(0, 8).forEach(dl => {
+    const btn = document.createElement('button');
+    btn.className = 'dl-btn';
+    btn.innerHTML = `⬇ Download ${dl.name}`;
+    btn.onclick = () => window.open(API + dl.url);
+    actions.appendChild(btn);
+  });
+
+  const newBtn = document.createElement('button');
+  newBtn.className = 'new-btn';
+  newBtn.textContent = '← Process another file';
+  newBtn.onclick = () => openTool(currentTool);
+  actions.appendChild(newBtn);
+}
+
+function showError(msg, detail) {
+  const card = document.getElementById('errorCard');
+  card.classList.add('show');
+  document.getElementById('errorMsg').textContent    = '❌ ' + msg;
+  document.getElementById('errorDetail').textContent = detail;
+}
+
+function resetUI() {
+  document.getElementById('resultCard').classList.remove('show');
+  document.getElementById('errorCard').classList.remove('show');
+  document.getElementById('progressArea').classList.remove('show');
+  document.getElementById('progressBar').style.width = '0%';
+}
+
+/* ══════════ FILTER / SEARCH ══════════ */
+function filterCat(cat, btn) {
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tool-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+function filterTools(q) {
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.tool-card').forEach(card => {
+    const name = card.querySelector('.tool-name').textContent.toLowerCase();
+    const desc = card.querySelector('.tool-desc').textContent.toLowerCase();
+    card.style.display = (!q || name.includes(q) || desc.includes(q)) ? '' : 'none';
+  });
+}
+
+/* ══════════ FAQ ══════════ */
+function toggleFaq(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+/* ══════════ MOBILE NAV ══════════ */
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+/* ══════════ STICKY NAV SHADOW ══════════ */
+window.addEventListener('scroll', () => {
+  document.querySelector('.nav').style.boxShadow =
+    window.scrollY > 4 ? '0 2px 20px rgba(26,16,20,.08)' : '';
+});
+
+/* ══════════ CHECK SYSTEM STATUS ON LOAD ══════════ */
+(async () => {
+  try {
+    const res  = await fetch(API + '/api/system');
+    const data = await res.json();
+    if (data.missingTools?.length > 0) {
+      document.getElementById('systemBar').classList.add('show');
+    }
+  } catch {
+    // Server not running — that's OK during static dev
+  }
+})();
+</script>
+</body>
+</html>
