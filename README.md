@@ -121,11 +121,6 @@ brew install --cask libreoffice
 
 Edit `.env` file:
 ```env
-PORT=3000
-NODE_ENV=development
-ALLOWED_ORIGIN=http://localhost:3000
-MAX_FILE_SIZE=209715200
-FILE_TTL_MINUTES=120
 ```
 
 ---
