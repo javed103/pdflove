@@ -34,18 +34,13 @@ app.use(helmet({
 /* ── CORS ─────────────────────────────────────────── */
 const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:3000';
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (e.g. Postman, curl, same-origin)
-    if (!origin || origin === allowedOrigin || process.env.NODE_ENV === 'development') {
-      callback(null, true);
-    } else {
-      callback(new Error(`CORS policy: origin ${origin} not allowed`));
-    }
-  },
-  methods:     ['GET', 'POST', 'OPTIONS'],
+  origin: true,          // ← allows any origin (fine for now)
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
+
+
 
 /* ── Logging ──────────────────────────────────────── */
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
